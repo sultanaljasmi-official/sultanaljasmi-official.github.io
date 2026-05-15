@@ -3,133 +3,342 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sultan Aljasmi</title>
+  <title>Sultan Aljasmi — Engineer · Athlete · Builder</title>
+  <meta name="description" content="Sultan Aljasmi — ADNOC strategist, Founder of Optimyze, athlete, and builder of premium health and lifestyle ventures in Abu Dhabi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: #0d0d0d;
+      --bg-elevated: #161616;
+      --text: #e8e6e1;
+      --text-muted: #9a9590;
+      --text-soft: #c5c1ba;
+      --border: #2a2a2a;
+      --accent: #b89968;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #0e0e0e;
-      color: #e8e6e1;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: 560px;
-      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+
+    /* HERO */
+    .hero {
       text-align: center;
+      padding: 60px 0 100px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .name {
+    .hero-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(48px, 9vw, 72px);
+      font-size: clamp(48px, 9vw, 80px);
       font-weight: 400;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      line-height: 1;
     }
 
-    .tagline {
-      font-size: 14px;
+    .hero-tagline {
+      font-size: 13px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .hero-statement {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--text-soft);
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 11px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: #9a9590;
-      margin-bottom: 48px;
+      color: var(--accent);
+      margin-bottom: 20px;
     }
 
-    .bio {
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 400;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-body {
       font-size: 16px;
-      color: #c5c1ba;
-      margin-bottom: 56px;
-      max-width: 440px;
-      margin-left: auto;
-      margin-right: auto;
+      color: var(--text-soft);
     }
 
-    .ventures {
+    .section-body p + p { margin-top: 16px; }
+
+    /* CREDENTIAL LISTS */
+    .credentials {
+      list-style: none;
       display: flex;
       flex-direction: column;
+      gap: 4px;
+    }
+
+    .credentials li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .credentials li:last-child { border-bottom: none; }
+
+    .cred-primary { color: var(--text); }
+    .cred-secondary { color: var(--text-muted); font-size: 13px; letter-spacing: 0.5px; }
+
+    /* VENTURE GRID */
+    .ventures {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      margin-bottom: 56px;
+      margin-top: 8px;
     }
 
     .venture {
-      border: 1px solid #2a2a2a;
-      padding: 20px 24px;
+      border: 1px solid var(--border);
+      padding: 24px;
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.3s ease, background 0.3s ease;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
     }
 
     .venture:hover {
-      border-color: #6b5d4f;
-      background: #161616;
+      border-color: var(--accent);
+      background: var(--bg-elevated);
+      transform: translateY(-2px);
     }
 
     .venture-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .venture-desc {
-      font-size: 13px;
-      color: #9a9590;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ACHIEVEMENT HIGHLIGHTS */
+    .highlights {
+      display: grid;
+      gap: 24px;
+    }
+
+    .highlight {
+      padding: 28px;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+    }
+
+    .highlight-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .highlight-detail {
+      font-size: 14px;
+      color: var(--text-muted);
       letter-spacing: 0.5px;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      padding: 80px 0 40px;
     }
 
     .socials {
       display: flex;
+      flex-wrap: wrap;
       gap: 32px;
       justify-content: center;
-      font-size: 13px;
-      letter-spacing: 1.5px;
+      font-size: 12px;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      margin-top: 32px;
     }
 
     .socials a {
-      color: #9a9590;
+      color: var(--text-muted);
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
-    .socials a:hover {
-      color: #e8e6e1;
+    .socials a:hover { color: var(--text); }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-bottom: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 24px; }
+      section { padding: 60px 0; }
+      .section-title { font-size: 28px; }
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1 class="name">Sultan Aljasmi</h1>
-    <p class="tagline">Abu Dhabi</p>
 
-    <p class="bio">
-      Building premium experiences in wellness, hospitality, and the future of life in the UAE.
-    </p>
+  <div class="container">
 
-    <div class="ventures">
-      <a href="#" class="venture">
-        <div class="venture-name">Optimyze</div>
-        <div class="venture-desc">Wellness & Longevity Boutique</div>
-      </a>
-      <a href="#" class="venture">
-        <div class="venture-name">Rise Abu Dhabi</div>
-        <div class="venture-desc">Premium Coffee & Lifestyle</div>
-      </a>
-    </div>
+    <header class="hero">
+      <h1 class="hero-name">Sultan Aljasmi</h1>
+      <p class="hero-tagline">Abu Dhabi · UAE</p>
+      <p class="hero-statement">Engineer by training. Athlete by discipline. Builder by drive.</p>
+    </header>
 
-    <div class="socials">
-      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-      <a href="mailto:sultanaljasmi1@gmail.com">Email</a>
-    </div>
-  </main>
+    <section>
+      <div class="section-label">Professional</div>
+      <h2 class="section-title">Strategy, Energy & Human Performance</h2>
+      <div class="section-body">
+        <p>13 years at ADNOC, currently in Strategy & Portfolio (DM&T). Founder of Optimyze, a premium health and fitness boutique in Abu Dhabi. Healthcare leader, sport ambassador, and advocate for the longevity movement in the UAE.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Ventures & Partnerships</div>
+      <h2 class="section-title">Premium brands rooted in the UAE.</h2>
+      <div class="ventures">
+        <a href="#" class="venture">
+          <div class="venture-name">Optimyze</div>
+          <div class="venture-desc">Health & Fitness Boutique</div>
+        </a>
+        <a href="#" class="venture">
+          <div class="venture-name">Rise Abu Dhabi</div>
+          <div class="venture-desc">Premium Coffee & Lifestyle</div>
+        </a>
+        <a href="#" class="venture">
+          <div class="venture-name">Aljasmi Brothers</div>
+          <div class="venture-desc">Athletic Legacy & Media</div>
+        </a>
+      </div>
+      <div class="section-body" style="margin-top: 32px;">
+        <p>In partnership with Advanced Chiropractor Center, Abu Dhabi Sports Council, and Abu Dhabi Aquatics — building the infrastructure for elite health and human performance across the Emirate.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Athletic Career</div>
+      <h2 class="section-title">A swimmer, a hybrid athlete, a competitor.</h2>
+      <div class="section-body" style="margin-bottom: 32px;">
+        <p>Lifelong commitment to performance training, recovery science, and the disciplines that compound — in and out of the pool.</p>
+      </div>
+      <div class="highlights">
+        <div class="highlight">
+          <div class="highlight-title">Guinness World Record</div>
+          <div class="highlight-detail">Aljasmi Brothers</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-title">Swim 62</div>
+          <div class="highlight-detail">Endurance challenge across the UAE coastline</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-title">Open Masters Games — Abu Dhabi 2026</div>
+          <div class="highlight-detail">Competitor</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Academic & Credentials</div>
+      <h2 class="section-title">Trained as an engineer. Lifelong student.</h2>
+      <ul class="credentials">
+        <li>
+          <span class="cred-primary">Master of Science · Petroleum Engineering</span>
+          <span class="cred-secondary">Khalifa University</span>
+        </li>
+        <li>
+          <span class="cred-primary">Bachelor of Science · Chemical Engineering</span>
+          <span class="cred-secondary">University of Minnesota</span>
+        </li>
+        <li>
+          <span class="cred-primary">Executive Education · Harvard Business School</span>
+          <span class="cred-secondary">Business Impact Programme</span>
+        </li>
+        <li>
+          <span class="cred-primary">Science of Exercise</span>
+          <span class="cred-secondary">University of Colorado</span>
+        </li>
+        <li>
+          <span class="cred-primary">CrossFit Level 1 Trainer</span>
+          <span class="cred-secondary">CF-L1</span>
+        </li>
+        <li>
+          <span class="cred-primary">AI-Literate Practitioner</span>
+          <span class="cred-secondary">Applied AI for business & creative workflows</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-label">Press & Media</div>
+      <h2 class="section-title">Featured & recognised.</h2>
+      <div class="section-body">
+        <p>Photographed with H.H. Sheikh Mohamed bin Zayed Al Nahyan, President of the United Arab Emirates. Featured across UAE national news, television interviews, and the Aljasmi Brothers podcast — exploring sport, longevity, and entrepreneurship.</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="section-label">Get in touch</div>
+      <h2 class="section-title">Let's build something meaningful.</h2>
+      <div class="socials">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:sultanaljasmi1@gmail.com">Email</a>
+      </div>
+    </section>
+
+    <footer>
+      © Sultan Aljasmi · Abu Dhabi
+    </footer>
+
+  </div>
+
 </body>
 </html>
