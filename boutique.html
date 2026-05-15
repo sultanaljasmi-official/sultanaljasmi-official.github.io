@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Longevity Boutique — Sultan Aljasmi</title>
+  <meta name="description" content="A curated selection of supplements, tools, wearables, and rituals for a longer healthier life — personally selected by Sultan Aljasmi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0d0d0d;
+      --bg-elevated: #161616;
+      --text: #e8e6e1;
+      --text-muted: #9a9590;
+      --text-soft: #c5c1ba;
+      --border: #2a2a2a;
+      --accent: #b89968;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 40px 0 80px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 10vw, 88px);
+      font-weight: 400;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    .hero-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.6vw, 26px);
+      font-style: italic;
+      color: var(--text-soft);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* INTRO */
+    .intro {
+      max-width: 720px;
+      margin: 0 auto 80px;
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro p {
+      font-size: 16px;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .intro p:last-child { margin-bottom: 0; }
+
+    /* CATEGORIES */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 48px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .categories span {
+      padding: 8px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-muted);
+      cursor: default;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .categories span:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* PRODUCT GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      overflow: hidden;
+    }
+
+    .product:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .product-image {
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, #1a1a1a 0%, #262220 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      color: var(--accent);
+      letter-spacing: -1px;
+      position: relative;
+    }
+
+    .product-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .product-category {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .product-brand {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .product-note {
+      font-size: 13.5px;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-top: 10px;
+      flex: 1;
+    }
+
+    .product-cta {
+      margin-top: 18px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* STANDARDS / EDITORIAL */
+    .standards {
+      max-width: 760px;
+      margin: 100px auto 0;
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .standards-label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .standards-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      text-align: center;
+      margin-bottom: 48px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+
+    .principle h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .principle p {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* DISCLOSURES */
+    .disclosures {
+      max-width: 600px;
+      margin: 60px auto 0;
+      padding: 24px;
+      border: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .disclosures p + p { margin-top: 12px; }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 60px 32px 40px;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      nav { gap: 20px; padding: 16px; }
+      .container { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="longevity.html">Longevity</a>
+    <a href="boutique.html" class="active">Boutique</a>
+  </nav>
+
+  <div class="container">
+
+    <header class="hero">
+      <div class="hero-label">Curated by Sultan</div>
+      <h1 class="hero-title">Longevity Boutique</h1>
+      <p class="hero-quote">"The tools and rituals I trust for a longer, healthier, better-lived life."</p>
+    </header>
+
+    <div class="intro">
+      <p>This is not a store. It is a curation.</p>
+      <p>Every product on this page has earned its place in my own life — through training, recovery, sleep, and the daily disciplines of longevity. I share them because they work for me. I do not share what I do not use.</p>
+      <p>Each selection is informed by the protocols I follow and the thinkers I trust — Gary Brecka, Paul Saladino, Peter Attia, Andrew Huberman, and Bryan Johnson — refined through years of practice as an athlete, founder, and student of the science.</p>
+    </div>
+
+    <div class="categories">
+      <span>Tracking</span>
+      <span>Supplementation</span>
+      <span>Recovery</span>
+      <span>Hydration</span>
+      <span>Training</span>
+      <span>Sleep</span>
+      <span>Light Discipline</span>
+      <span>Reading</span>
+    </div>
+
+    <div class="grid">
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">O</div>
+        <div class="product-body">
+          <div class="product-category">Tracking</div>
+          <div class="product-name">Oura Ring Gen3</div>
+          <div class="product-brand">Oura</div>
+          <p class="product-note">Sleep, recovery, and HRV tracking in a ring you forget you're wearing. The cornerstone of my data stack.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">A</div>
+        <div class="product-body">
+          <div class="product-category">Supplementation</div>
+          <div class="product-name">AG1</div>
+          <div class="product-brand">Athletic Greens</div>
+          <p class="product-note">Daily greens, vitamins, and adaptogens in one scoop. The simplest non-negotiable in my morning routine.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">H</div>
+        <div class="product-body">
+          <div class="product-category">Supplementation</div>
+          <div class="product-name">Beef Organs</div>
+          <div class="product-brand">Heart & Soil</div>
+          <p class="product-note">Liver, heart, kidney, spleen, pancreas — freeze-dried nose-to-tail in a capsule. Drawn from the Saladino playbook.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">T</div>
+        <div class="product-body">
+          <div class="product-category">Recovery</div>
+          <div class="product-name">Theragun PRO</div>
+          <div class="product-brand">Therabody</div>
+          <p class="product-note">Percussive recovery for the days when training breaks you down. Five minutes saves five hours of soreness.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">E</div>
+        <div class="product-body">
+          <div class="product-category">Hydration</div>
+          <div class="product-name">Echo Hydrogen Water</div>
+          <div class="product-brand">Echo</div>
+          <p class="product-note">Molecular hydrogen at therapeutic dose. A Brecka protocol I've integrated for anti-inflammatory effect and cellular signalling.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">L</div>
+        <div class="product-body">
+          <div class="product-category">Hydration</div>
+          <div class="product-name">Electrolytes</div>
+          <div class="product-brand">LMNT</div>
+          <p class="product-note">Sodium, potassium, magnesium — the three I lose fastest in UAE heat and training. No sugar, no fillers, no compromise.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">B</div>
+        <div class="product-body">
+          <div class="product-category">Light Discipline</div>
+          <div class="product-name">Sunset Blue-Blockers</div>
+          <div class="product-brand">BluBlox</div>
+          <p class="product-note">Worn from sunset to sleep. Amber lenses block the wavelengths that suppress melatonin and disrupt the circadian clock.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">H</div>
+        <div class="product-body">
+          <div class="product-category">Training</div>
+          <div class="product-name">Bondi 8</div>
+          <div class="product-brand">Hoka</div>
+          <p class="product-note">Maximum cushion for long runs and recovery miles. The shoe I reach for when my legs need a break but the work doesn't stop.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">O</div>
+        <div class="product-body">
+          <div class="product-category">Reading</div>
+          <div class="product-name">Outlive</div>
+          <div class="product-brand">Peter Attia, MD</div>
+          <p class="product-note">The longevity playbook. The most rigorous framework I have read for adding healthy years to your life.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener sponsored" class="product">
+        <div class="product-image">W</div>
+        <div class="product-body">
+          <div class="product-category">Reading</div>
+          <div class="product-name">Why We Sleep</div>
+          <div class="product-brand">Matthew Walker, PhD</div>
+          <p class="product-note">The book that ended my casual relationship with sleep. Walker's research is the foundation Attia, Huberman, and Johnson all build on.</p>
+          <div class="product-cta">View →</div>
+        </div>
+      </a>
+
+    </div>
+
+    <section class="standards">
+      <div class="standards-label">The Standards</div>
+      <h2 class="standards-title">How I curate.</h2>
+      <div class="principles">
+        <div class="principle">
+          <h4>I use it</h4>
+          <p>Nothing is featured here that I have not personally integrated into my own training, recovery, or daily routine.</p>
+        </div>
+        <div class="principle">
+          <h4>Science holds</h4>
+          <p>Every product is aligned with the protocols of advisors I trust — Brecka, Saladino, Attia, Huberman, Johnson.</p>
+        </div>
+        <div class="principle">
+          <h4>Quality first</h4>
+          <p>Premium sourcing, clean ingredients, transparent manufacturing. No cheap fillers, no shortcuts, no compromise.</p>
+        </div>
+        <div class="principle">
+          <h4>Earned, not paid</h4>
+          <p>Products earn their place through real-world use, not brand budgets. Affiliate partnerships exist only after I've vetted the product.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="disclosures">
+      <p>Some links in this boutique are affiliate partnerships. I only feature products I personally use and trust.</p>
+      <p>The selections here reflect my personal practice. They are not medical advice. Consult qualified physicians before making meaningful changes to supplementation, training, or lifestyle.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    © Sultan Aljasmi · Abu Dhabi · <a href="index.html">Home</a> · <a href="longevity.html">Longevity</a>
+  </footer>
+
+</body>
+</html>
