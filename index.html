@@ -30,6 +30,28 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
     .container {
       max-width: 720px;
       margin: 0 auto;
@@ -336,6 +358,11 @@
 </head>
 <body>
 
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="longevity.html">Longevity</a>
+  </nav>
+
   <div class="container">
 
     <header class="hero">
@@ -374,7 +401,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="the-edit">
       <div class="section-label">The Edit</div>
       <h2 class="section-title">Tools, supplements, and rituals I trust.</h2>
       <p class="edit-intro">A curated selection of what I personally use to train, recover, and build a longer healthier life. Tested by me, recommended only if it earns its place.</p>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Longevity — Sultan Aljasmi</title>
+  <meta name="description" content="A modern longevity framework informed by Gary Brecka, Paul Saladino, Peter Attia, Andrew Huberman, and Bryan Johnson — the protocols I follow to add healthy years to life." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0d0d0d;
+      --bg-elevated: #161616;
+      --text: #e8e6e1;
+      --text-muted: #9a9590;
+      --text-soft: #c5c1ba;
+      --border: #2a2a2a;
+      --accent: #b89968;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 40px 0 80px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 11vw, 96px);
+      font-weight: 400;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    .hero-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3vw, 28px);
+      font-style: italic;
+      color: var(--text-soft);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 400;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .section-body {
+      font-size: 16px;
+      color: var(--text-soft);
+    }
+
+    .section-body p + p { margin-top: 16px; }
+
+    /* THE COUNCIL */
+    .council {
+      display: grid;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .advisor {
+      padding: 28px;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      transition: border-color 0.3s ease;
+    }
+
+    .advisor:hover { border-color: var(--accent); }
+
+    .advisor-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      margin-bottom: 4px;
+    }
+
+    .advisor-title {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .advisor-focus {
+      font-size: 15px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* PROTOCOL BLOCKS */
+    .protocol {
+      padding: 50px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .protocol:first-of-type { border-top: none; padding-top: 30px; }
+
+    .protocol-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      letter-spacing: 4px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .protocol-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .protocol-principle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+    }
+
+    .protocol-sources {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .protocol-sources strong {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .protocol-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .protocol-list li {
+      padding-left: 24px;
+      position: relative;
+      font-size: 15px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .protocol-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* CTA BLOCK */
+    .cta-block {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .cta-block a {
+      display: inline-block;
+      padding: 16px 36px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .cta-block a:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      max-width: 600px;
+      margin: 40px auto 0;
+      padding: 24px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 60px 32px 40px;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      nav { gap: 20px; padding: 16px; }
+      .container { padding: 40px 24px; }
+      section, .protocol { padding: 50px 0; }
+      .protocol-title { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="longevity.html" class="active">Longevity</a>
+  </nav>
+
+  <div class="container">
+
+    <header class="hero">
+      <div class="hero-label">Protocols · Principles · Practice</div>
+      <h1 class="hero-title">Longevity</h1>
+      <p class="hero-quote">"The goal is not to live forever. The goal is to live long, well, and useful — and to compress the years of weakness at the end."</p>
+    </header>
+
+    <section>
+      <div class="section-label">Philosophy</div>
+      <h2 class="section-title">Adding healthy years. Not just years.</h2>
+      <div class="section-body">
+        <p>Longevity is not a wish. It's a daily discipline of small decisions compounded across decades — what you eat, how you move, how you sleep, what you put into your body, and what you protect it from.</p>
+        <p>My framework is informed by five of the most rigorous voices in modern longevity. I do not follow any single one of them dogmatically. I take the highest-conviction principles from each, apply them as an athlete and operator living in the UAE, and refine through experience and data.</p>
+        <p>These are the protocols I practice. They are not medical advice. They are a framework.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">The Council</div>
+      <h2 class="section-title">Five thinkers shaping the modern longevity playbook.</h2>
+      <div class="section-body" style="margin-bottom: 24px;">
+        <p>Each advisor contributes a distinct angle. Together they form a complete framework.</p>
+      </div>
+
+      <div class="council">
+
+        <div class="advisor">
+          <div class="advisor-name">Gary Brecka</div>
+          <div class="advisor-title">Human Biologist · 10X Health System</div>
+          <p class="advisor-focus">Hydrogen water, breathwork, methylene blue, grounding, and personalised supplementation based on genetics — particularly the MTHFR pathway.</p>
+        </div>
+
+        <div class="advisor">
+          <div class="advisor-name">Paul Saladino, MD</div>
+          <div class="advisor-title">Animal-Based Nutrition · Author of <em>The Carnivore Code</em></div>
+          <p class="advisor-focus">Ancestral nutrition — nose-to-tail animal foods, organ meats, raw dairy, honey, fruit. Eliminate seed oils and ultra-processed foods.</p>
+        </div>
+
+        <div class="advisor">
+          <div class="advisor-name">Peter Attia, MD</div>
+          <div class="advisor-title">Founder, Early Medical · Author of <em>Outlive</em></div>
+          <p class="advisor-focus">Medicine 3.0. Strength, Zone 2, VO₂ max, sleep, and metabolic health as the defence against the four horsemen of chronic disease.</p>
+        </div>
+
+        <div class="advisor">
+          <div class="advisor-name">Andrew Huberman, PhD</div>
+          <div class="advisor-title">Stanford Neuroscientist · Huberman Lab</div>
+          <p class="advisor-focus">Morning sunlight, circadian rhythm, deliberate cold and heat exposure, NSDR, and evidence-based behavioural protocols for the nervous system.</p>
+        </div>
+
+        <div class="advisor">
+          <div class="advisor-name">Bryan Johnson</div>
+          <div class="advisor-title">Founder, Project Blueprint</div>
+          <p class="advisor-focus">Algorithmic self-experimentation. Treating the body as a system to be measured, monitored, and continuously optimised against biological age.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">The Protocols</div>
+      <h2 class="section-title">What I practice daily.</h2>
+      <div class="section-body" style="margin-bottom: 16px;">
+        <p>Organised around the inputs that move the needle most — sleep, light, food, water, movement, recovery, and mind.</p>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">01</div>
+        <h3 class="protocol-title">Morning Light & First Hour</h3>
+        <p class="protocol-principle">How you start the day sets the circadian clock for everything that follows.</p>
+        <div class="protocol-sources">Sources: <strong>Huberman</strong> · <strong>Brecka</strong></div>
+        <ul class="protocol-list">
+          <li>5–10 minutes of direct sunlight within 30 minutes of waking. No sunglasses, no window glass — outside, eyes open.</li>
+          <li>Hydrate before food: water + electrolytes + a pinch of sea salt.</li>
+          <li>Delay caffeine by 90–120 minutes after waking — allows adenosine to clear naturally.</li>
+          <li>Breathwork before screens — 3–5 minutes of nasal breathing or physiological sighs.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">02</div>
+        <h3 class="protocol-title">Sleep</h3>
+        <p class="protocol-principle">The single most underrated longevity intervention.</p>
+        <div class="protocol-sources">Sources: <strong>Attia</strong> · <strong>Huberman</strong> · <strong>Johnson</strong></div>
+        <ul class="protocol-list">
+          <li>Cool bedroom — 18–19°C (65°F). The body needs to drop core temperature to sleep deeply.</li>
+          <li>Complete darkness. Blackout shades. Cover or remove all LEDs.</li>
+          <li>Consistent sleep and wake times — including weekends.</li>
+          <li>Seven to nine hours, non-negotiable. Sleep debt cannot be repaid with caffeine.</li>
+          <li>No screens or overhead lights in the 90 minutes before sleep.</li>
+          <li>Last meal three hours before bed where possible.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">03</div>
+        <h3 class="protocol-title">Food</h3>
+        <p class="protocol-principle">Eat real food. Mostly animals. Don't drink your calories.</p>
+        <div class="protocol-sources">Sources: <strong>Saladino</strong> · <strong>Attia</strong> · <strong>Brecka</strong></div>
+        <ul class="protocol-list">
+          <li>Animal-based foundation — grass-fed beef, lamb, eggs, raw or full-fat dairy.</li>
+          <li>Organ meats weekly — liver is the most nutrient-dense food on earth.</li>
+          <li>Eliminate seed oils completely — canola, soybean, sunflower, corn, vegetable, "vegetable" blends.</li>
+          <li>Eliminate ultra-processed food. If it has a barcode and an ingredients list longer than three lines, it is not food.</li>
+          <li>Carbohydrates from real sources — raw honey, ripe fruit, raw dairy, white rice for training days.</li>
+          <li>Protein priority — aim for 1g per pound of target bodyweight.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">04</div>
+        <h3 class="protocol-title">Hydration & Electrolytes</h3>
+        <p class="protocol-principle">Most people are chronically dehydrated and electrolyte-depleted. In the UAE, the deficit is severe.</p>
+        <div class="protocol-sources">Sources: <strong>Brecka</strong> · <strong>Huberman</strong> · <strong>Attia</strong></div>
+        <ul class="protocol-list">
+          <li>Spring or properly filtered water as the foundation. Not tap. Not plastic-bottled when avoidable.</li>
+          <li>Hydrogen water daily — a Brecka protocol I've adopted for its anti-inflammatory and cellular signalling effects.</li>
+          <li>Electrolytes every morning — approximately 1,000 mg sodium, 200 mg potassium, 60 mg magnesium.</li>
+          <li>More on training days. Sweat loss in Abu Dhabi heat is significant and often underestimated.</li>
+          <li>Avoid commercial sports drinks loaded with sugar and food colouring.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">05</div>
+        <h3 class="protocol-title">Blue Light & Circadian Discipline</h3>
+        <p class="protocol-principle">Light is the most powerful signal you give your body. Master light, master your biology.</p>
+        <div class="protocol-sources">Sources: <strong>Huberman</strong> · <strong>Attia</strong></div>
+        <ul class="protocol-list">
+          <li>Bright sunlight in the morning — see Protocol 01.</li>
+          <li>No overhead lights after sunset. Lamps only, low and warm.</li>
+          <li>Blue-light blocking glasses after dark when working on screens.</li>
+          <li>Phones on red-light or Night Shift filter after 19:00.</li>
+          <li>No screens in bed — period.</li>
+          <li>Mid-day sun exposure when possible — at least 10 minutes of bright light supports daytime alertness and night-time sleep.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">06</div>
+        <h3 class="protocol-title">Training</h3>
+        <p class="protocol-principle">Strength is the most important variable for longevity after 40. Cardiovascular fitness is a close second.</p>
+        <div class="protocol-sources">Sources: <strong>Attia</strong> · <strong>Johnson</strong></div>
+        <ul class="protocol-list">
+          <li>Resistance training 3–4 times per week — compound lifts, full-body coverage.</li>
+          <li>Zone 2 cardio 3 times per week, 45–60 minutes. Conversational pace, nasal breathing.</li>
+          <li>VO₂ max intervals once per week — the 4×4 protocol (4 min hard, 4 min recovery, repeat).</li>
+          <li>Daily steps — at least 8,000–10,000.</li>
+          <li>Stability and mobility woven through the week — protect joints, especially as load increases.</li>
+          <li>One full rest day per week — recovery is when adaptation happens.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">07</div>
+        <h3 class="protocol-title">Recovery — Cold, Heat, Breath</h3>
+        <p class="protocol-principle">Stress the system. Then let it adapt.</p>
+        <div class="protocol-sources">Sources: <strong>Brecka</strong> · <strong>Huberman</strong></div>
+        <ul class="protocol-list">
+          <li>Cold exposure — 11 minutes per week total, split across multiple short sessions.</li>
+          <li>Sauna — 4 sessions per week, 20 minutes each at 80°C. Strongest evidence base for cardiovascular and mortality benefit.</li>
+          <li>Breathwork daily — physiological sigh, box breathing, or Wim Hof depending on the need.</li>
+          <li>Active recovery — long walks, easy swims, mobility work between hard training days.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">08</div>
+        <h3 class="protocol-title">Supplementation</h3>
+        <p class="protocol-principle">Targeted. Evidence-based. Bloodwork-driven.</p>
+        <div class="protocol-sources">Sources: <strong>All five</strong> · individual stack varies based on testing</div>
+        <ul class="protocol-list">
+          <li>Creatine monohydrate — 5g daily. The most researched supplement in sports science.</li>
+          <li>Omega-3 (EPA + DHA) — 2–3g daily, from high-quality fish oil.</li>
+          <li>Vitamin D3 + K2 — dosed by blood level, not by label.</li>
+          <li>Magnesium glycinate — evenings, supports sleep and recovery.</li>
+          <li>Methylated B vitamins (Brecka protocol) — particularly relevant for MTHFR variants.</li>
+          <li>Trace minerals and electrolytes — daily, baseline.</li>
+        </ul>
+      </div>
+
+      <div class="protocol">
+        <div class="protocol-number">09</div>
+        <h3 class="protocol-title">Mind & Stress</h3>
+        <p class="protocol-principle">You cannot outrun a stressed nervous system.</p>
+        <div class="protocol-sources">Sources: <strong>Huberman</strong> · <strong>Brecka</strong></div>
+        <ul class="protocol-list">
+          <li>NSDR (Non-Sleep Deep Rest) — 10–20 minutes when energy dips, mid-afternoon ideal.</li>
+          <li>Daily breathwork — see Protocol 07.</li>
+          <li>Time in nature without a phone — minimum once per week.</li>
+          <li>Reading before sleep — analog books, not screens.</li>
+          <li>One day per week with reduced inputs — fewer meetings, fewer notifications, more presence.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="cta-block">
+      <div class="section-label">The Edit</div>
+      <h2 class="section-title">The tools I use to do this work.</h2>
+      <p class="section-body" style="margin-bottom: 32px;">A curated boutique of the supplements, wearables, and recovery tools woven through these protocols.</p>
+      <a href="index.html#the-edit">Explore The Edit →</a>
+    </section>
+
+    <p class="disclaimer">
+      The protocols on this page reflect my personal practice. They are not medical advice. Always consult qualified physicians before making meaningful changes to your training, nutrition, supplementation, or lifestyle — particularly if you have an existing medical condition.
+    </p>
+
+  </div>
+
+  <footer>
+    © Sultan Aljasmi · Abu Dhabi · <a href="index.html">Home</a>
+  </footer>
+
+</body>
+</html>
