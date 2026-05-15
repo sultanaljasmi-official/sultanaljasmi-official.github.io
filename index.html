@@ -158,6 +158,117 @@
       text-transform: uppercase;
     }
 
+    /* THE EDIT — BOUTIQUE */
+    .edit-intro {
+      font-size: 16px;
+      color: var(--text-soft);
+      margin-bottom: 40px;
+      max-width: 560px;
+    }
+
+    .edit-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .edit-categories span {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+    }
+
+    .edit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      overflow: hidden;
+    }
+
+    .product:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .product-image {
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, #1a1a1a 0%, #262220 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: var(--accent);
+      letter-spacing: -1px;
+    }
+
+    .product-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .product-category {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .product-brand {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .product-note {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.5;
+      margin-top: 8px;
+      flex: 1;
+    }
+
+    .product-cta {
+      margin-top: 16px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .affiliate-disclosure {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 40px;
+      font-style: italic;
+      text-align: center;
+    }
+
     /* ACHIEVEMENT HIGHLIGHTS */
     .highlights {
       display: grid;
@@ -261,6 +372,93 @@
       <div class="section-body" style="margin-top: 32px;">
         <p>In partnership with Advanced Chiropractor Center, Abu Dhabi Sports Council, and Abu Dhabi Aquatics — building the infrastructure for elite health and human performance across the Emirate.</p>
       </div>
+    </section>
+
+    <section>
+      <div class="section-label">The Edit</div>
+      <h2 class="section-title">Tools, supplements, and rituals I trust.</h2>
+      <p class="edit-intro">A curated selection of what I personally use to train, recover, and build a longer healthier life. Tested by me, recommended only if it earns its place.</p>
+
+      <div class="edit-categories">
+        <span>Recovery</span>
+        <span>Supplementation</span>
+        <span>Tracking</span>
+        <span>Training</span>
+        <span>Nutrition</span>
+        <span>Reading</span>
+      </div>
+
+      <div class="edit-grid">
+
+        <a href="#" target="_blank" rel="noopener sponsored" class="product">
+          <div class="product-image">O</div>
+          <div class="product-body">
+            <div class="product-category">Tracking</div>
+            <div class="product-name">Oura Ring Gen3</div>
+            <div class="product-brand">Oura</div>
+            <p class="product-note">Sleep, recovery, and HRV tracking in a ring you forget you're wearing. The cornerstone of my data stack.</p>
+            <div class="product-cta">View →</div>
+          </div>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener sponsored" class="product">
+          <div class="product-image">A</div>
+          <div class="product-body">
+            <div class="product-category">Supplementation</div>
+            <div class="product-name">AG1</div>
+            <div class="product-brand">Athletic Greens</div>
+            <p class="product-note">Daily greens, vitamins, and adaptogens in one scoop. The simplest non-negotiable in my morning routine.</p>
+            <div class="product-cta">View →</div>
+          </div>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener sponsored" class="product">
+          <div class="product-image">T</div>
+          <div class="product-body">
+            <div class="product-category">Recovery</div>
+            <div class="product-name">Theragun PRO</div>
+            <div class="product-brand">Therabody</div>
+            <p class="product-note">Percussive recovery for the days when training breaks you down. Five minutes saves five hours of soreness.</p>
+            <div class="product-cta">View →</div>
+          </div>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener sponsored" class="product">
+          <div class="product-image">L</div>
+          <div class="product-body">
+            <div class="product-category">Performance</div>
+            <div class="product-name">Electrolyte Mix</div>
+            <div class="product-brand">LMNT</div>
+            <p class="product-note">Sodium, potassium, magnesium — the three I lose fastest in UAE heat and training. No sugar, no fillers.</p>
+            <div class="product-cta">View →</div>
+          </div>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener sponsored" class="product">
+          <div class="product-image">B</div>
+          <div class="product-body">
+            <div class="product-category">Reading</div>
+            <div class="product-name">Outlive</div>
+            <div class="product-brand">Peter Attia, MD</div>
+            <p class="product-note">The longevity playbook. The most rigorous framework I've read on adding healthy years to your life.</p>
+            <div class="product-cta">View →</div>
+          </div>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener sponsored" class="product">
+          <div class="product-image">H</div>
+          <div class="product-body">
+            <div class="product-category">Training</div>
+            <div class="product-name">Bondi 8</div>
+            <div class="product-brand">Hoka</div>
+            <p class="product-note">Maximum cushion for long runs and recovery miles. The shoe I reach for when my legs need a break but I still need the work.</p>
+            <div class="product-cta">View →</div>
+          </div>
+        </a>
+
+      </div>
+
+      <p class="affiliate-disclosure">Some links may be affiliate partnerships. I only feature what I personally use and trust.</p>
     </section>
 
     <section>
