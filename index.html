@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sultan Aljasmi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #e8e6e1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 9vw, 72px);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #9a9590;
+      margin-bottom: 48px;
+    }
+
+    .bio {
+      font-size: 16px;
+      color: #c5c1ba;
+      margin-bottom: 56px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ventures {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .venture {
+      border: 1px solid #2a2a2a;
+      padding: 20px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .venture:hover {
+      border-color: #6b5d4f;
+      background: #161616;
+    }
+
+    .venture-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .venture-desc {
+      font-size: 13px;
+      color: #9a9590;
+      letter-spacing: 0.5px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .socials a {
+      color: #9a9590;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .socials a:hover {
+      color: #e8e6e1;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1 class="name">Sultan Aljasmi</h1>
+    <p class="tagline">Abu Dhabi</p>
+
+    <p class="bio">
+      Building premium experiences in wellness, hospitality, and the future of life in the UAE.
+    </p>
+
+    <div class="ventures">
+      <a href="#" class="venture">
+        <div class="venture-name">Optimyze</div>
+        <div class="venture-desc">Wellness & Longevity Boutique</div>
+      </a>
+      <a href="#" class="venture">
+        <div class="venture-name">Rise Abu Dhabi</div>
+        <div class="venture-desc">Premium Coffee & Lifestyle</div>
+      </a>
+    </div>
+
+    <div class="socials">
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      <a href="mailto:sultanaljasmi1@gmail.com">Email</a>
+    </div>
+  </main>
+</body>
+</html>
